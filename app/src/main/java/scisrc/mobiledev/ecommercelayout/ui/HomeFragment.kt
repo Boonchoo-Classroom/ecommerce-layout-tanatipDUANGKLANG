@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
         binding.recommendedProductsRecycler.adapter = ProductAdapter(recommendedProducts)
 
         // ตั้งค่า RecyclerView สำหรับโปรโมชั่น
-        val promotions = listOf("โปร 1", "โปร 2", "โปร 3")
+        val promotions = listOf("โปร 1", "โปร  2", "โปร 3")
         binding.promotionsRecycler.layoutManager = LinearLayoutManager(context)
         binding.promotionsRecycler.adapter = PromotionAdapter(promotions)
     }
