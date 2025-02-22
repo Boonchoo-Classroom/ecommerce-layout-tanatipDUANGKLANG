@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/productListFragment">
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="scisrc.mobiledev.ecommercelayout.ui.ProductListFragment"
+        android:label="Product List"
+        tools:layout="@layout/fragment_product_list" />
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="scisrc.mobiledev.ecommercelayout.ui.ProductDetailFragment"
+        android:label="Product Detail"
+        tools:layout="@layout/fragment_product_detail">
+
+        <argument
+            android:name="category_name"
+            app:argType="string" />
+    </fragment>
+</navigation>
