@@ -16,11 +16,11 @@ class ProductListFragment : Fragment(R.layout.fragment_product_list) {
     private lateinit var recyclerView: RecyclerView
     private val categoryList = listOf(
         "อุปกรณ์เครื่องเขียน",
+        "เครื่องใช้ไฟฟ้า",
         "อุปกรณ์กีฬา",
-        "Gadget",
+        "อุปกรณ์ไอที",
         "เสื้อผ้า",
-        "ของใช้ในบ้าน",
-        "อุปกรณ์อิเล็กทรอนิกส์"
+        "ของใช้ในบ้าน"
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
