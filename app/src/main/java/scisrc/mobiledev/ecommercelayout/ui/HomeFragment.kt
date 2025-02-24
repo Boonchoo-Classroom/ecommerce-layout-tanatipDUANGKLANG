@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
 
         // ตั้งค่า RecyclerView สำหรับสินค้าแนะนำ
         val recommendedProducts = listOf(
-            ProductItem(R.drawable.keyboard, "Keyboard Pro Max"),
+            ProductItem(R.drawable.keyboard, "Keyboard Pro"),
             ProductItem(R.drawable.monitor, "Monitor 144hz"),
             ProductItem(R.drawable.mouse, "Mouse Logitech X"),
             ProductItem(R.drawable.speaker, "Speaker 4.0")
