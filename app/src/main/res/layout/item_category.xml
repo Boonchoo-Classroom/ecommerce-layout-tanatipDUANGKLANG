@@ -13,13 +13,16 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- สีแทนรูปภาพ -->
-        <View
+        <!-- เปลี่ยนจาก View เป็น ImageView สำหรับรูปภาพ -->
+        <ImageView
+            android:id="@+id/imageCategory"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
             android:layout_marginEnd="16dp"/>
 
+        <!-- ชื่อหมวดหมู่ -->
         <TextView
             android:id="@+id/textCategoryName"
             android:layout_width="wrap_content"

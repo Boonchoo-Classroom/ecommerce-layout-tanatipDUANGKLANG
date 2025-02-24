@@ -1,20 +1,21 @@
 package scisrc.mobiledev.ecommercelayout.ui.adapters
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import scisrc.mobiledev.ecommercelayout.R
 import scisrc.mobiledev.ecommercelayout.databinding.ItemProductBinding
 
-class ProductAdapter(private val items: List<String>) :
+data class ProductItem(val imageResId: Int, val name: String)
+
+class ProductAdapter(private val items: List<ProductItem>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(name: String) {
-            binding.productName.text = name
-            binding.productImage.background = ColorDrawable(Color.LTGRAY) // ใช้สีแทนรูป
+        fun bind(item: ProductItem) {
+            binding.productName.text = item.name
+            binding.productImage.setImageResource(item.imageResId) // ใช้รูปภาพแทนสี
         }
     }
 

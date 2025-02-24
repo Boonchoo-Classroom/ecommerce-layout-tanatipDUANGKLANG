@@ -5,11 +5,12 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <View
+    <ImageView
         android:id="@+id/productImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@android:color/darker_gray" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/productName"

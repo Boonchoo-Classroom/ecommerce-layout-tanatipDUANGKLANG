@@ -1,20 +1,21 @@
 package scisrc.mobiledev.ecommercelayout.ui.adapters
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import scisrc.mobiledev.ecommercelayout.R
 import scisrc.mobiledev.ecommercelayout.databinding.ItemPromotionBinding
 
-class PromotionAdapter(private val items: List<String>) :
+data class PromotionItem(val imageResId: Int, val name: String)
+
+class PromotionAdapter(private val items: List<PromotionItem>) :
     RecyclerView.Adapter<PromotionAdapter.PromotionViewHolder>() {
 
     class PromotionViewHolder(private val binding: ItemPromotionBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(name: String) {
-            binding.promotionName.text = name
-            binding.promotionImage.background = ColorDrawable(Color.DKGRAY) // ใช้สีแทนรูป
+        fun bind(item: PromotionItem) {
+            binding.promotionName.text = item.name
+            binding.promotionImage.setImageResource(item.imageResId) // ใช้รูปภาพแทนสี
         }
     }
 

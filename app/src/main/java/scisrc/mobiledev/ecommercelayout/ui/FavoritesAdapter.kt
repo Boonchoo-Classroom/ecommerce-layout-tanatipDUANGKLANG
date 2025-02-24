@@ -1,6 +1,5 @@
 package scisrc.mobiledev.ecommercelayout.ui
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import scisrc.mobiledev.ecommercelayout.R
 
-data class FavoriteItem(val colorHex: String, val name: String, val price: String)
+// ใช้ imageResId แทน colorHex
+data class FavoriteItem(val imageResId: Int, val name: String, val price: String)
 
 class FavoritesAdapter(private val favoriteItems: List<FavoriteItem>) :
     RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder>() {
@@ -27,7 +27,7 @@ class FavoritesAdapter(private val favoriteItems: List<FavoriteItem>) :
 
     override fun onBindViewHolder(holder: FavoritesViewHolder, position: Int) {
         val item = favoriteItems[position]
-        holder.imageProduct.setBackgroundColor(Color.parseColor(item.colorHex))
+        holder.imageProduct.setImageResource(item.imageResId) // ใช้รูปภาพจาก drawable
         holder.textName.text = item.name
         holder.textPrice.text = item.price
     }

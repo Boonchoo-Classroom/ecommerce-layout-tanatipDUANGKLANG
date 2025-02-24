@@ -1,6 +1,5 @@
 package scisrc.mobiledev.ecommercelayout.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -19,12 +18,12 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
         recyclerViewFavorites = view.findViewById(R.id.recyclerViewFavorites)
         recyclerViewFavorites.layoutManager = LinearLayoutManager(requireContext())
 
-        // Mock ข้อมูลรายการโปรด
+        // Mock ข้อมูลรายการโปรด (ใช้รูปภาพจาก drawable)
         val favoriteItems = listOf(
-            FavoriteItem("#FFCDD2", "หูฟังบลูทูธ", "฿1,200"),
-            FavoriteItem("#C8E6C9", "คีย์บอร์ดแมคคานิคอล", "฿2,500"),
-            FavoriteItem("#BBDEFB", "เมาส์เกมมิ่ง", "฿800"),
-            FavoriteItem("#FFECB3", "จอภาพ 144Hz", "฿5,900")
+            FavoriteItem(R.drawable.headphone, "หูฟังบลูทูธ", "฿1,200"),
+            FavoriteItem(R.drawable.keyboard, "คีย์บอร์ดแมคคานิคอล", "฿2,500"),
+            FavoriteItem(R.drawable.mouse, "เมาส์เกมมิ่ง", "฿800"),
+            FavoriteItem(R.drawable.monitor, "จอภาพ 144Hz", "฿5,900")
         )
 
         favoritesAdapter = FavoritesAdapter(favoriteItems)

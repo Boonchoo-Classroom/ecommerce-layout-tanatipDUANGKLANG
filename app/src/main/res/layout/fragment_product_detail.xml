@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- ปุ่มย้อนกลับ -->
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
@@ -15,15 +16,70 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="16dp"/>
 
+    <!-- ชื่อสินค้า -->
     <TextView
-        android:id="@+id/textProductDetail"
+        android:id="@+id/textProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="รายละเอียดสินค้า"
-        android:textSize="20sp"
+        android:text="ชื่อสินค้า"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- ราคาสินค้า -->
+    <TextView
+        android:id="@+id/textProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="฿0.00"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/textProductName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- หมวดหมู่สินค้า -->
+    <TextView
+        android:id="@+id/textProductCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="หมวดหมู่: ไม่ระบุ"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textProductPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <!-- คำอธิบายสินค้า -->
+    <TextView
+        android:id="@+id/textProductDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="คำอธิบายสินค้า"
+        android:textSize="14sp"
+        android:maxLines="5"
+        android:ellipsize="end"
+        app:layout_constraintTop_toBottomOf="@id/textProductCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- ปุ่มเพิ่มลงตะกร้า -->
+    <Button
+        android:id="@+id/btnAddToCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="เพิ่มลงตะกร้า"
+        android:backgroundTint="#6200EE"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/textProductDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

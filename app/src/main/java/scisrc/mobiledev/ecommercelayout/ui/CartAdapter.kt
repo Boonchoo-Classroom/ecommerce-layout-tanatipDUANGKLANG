@@ -26,7 +26,7 @@ class CartAdapter(private val cartItems: List<CartItem>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val item = cartItems[position]
-        holder.imageProduct.setImageResource(item.imageResId)
+        holder.imageProduct.setImageResource(item.imageResId) // ใช้รูปภาพจาก drawable
         holder.textName.text = item.name
         holder.textPrice.text = item.price
         holder.textQuantity.text = "จำนวน: ${item.quantity}"

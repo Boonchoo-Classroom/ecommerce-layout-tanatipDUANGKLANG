@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -14,23 +15,44 @@ import scisrc.mobiledev.ecommercelayout.R
 class ProductListFragment : Fragment(R.layout.fragment_product_list) {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var categoryAdapter: CategoryAdapter
+
     private val categoryList = listOf(
-        "อุปกรณ์เครื่องเขียน",
-        "เครื่องใช้ไฟฟ้า",
-        "อุปกรณ์กีฬา",
-        "อุปกรณ์ไอที",
-        "เสื้อผ้า",
-        "ของใช้ในบ้าน"
+        CategoryItem(R.drawable.headphone, "หูฟังเกมมิ่ง"),
+        CategoryItem(R.drawable.mouse, "เมาส์เกมมิ่ง"),
+        CategoryItem(R.drawable.keyboard, "คีย์บอร์ดเกมมิ่ง"),
+        CategoryItem(R.drawable.monitor, "จอเกมมิ่ง"),
+        CategoryItem(R.drawable.mousepad, "แผ่นรองเมาส์"),
+        CategoryItem(R.drawable.speaker, "ลำโพง")
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         recyclerView = view.findViewById(R.id.recyclerViewCategories)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = CategoryAdapter(categoryList)
+
+        categoryAdapter = CategoryAdapter(categoryList)
+        recyclerView.adapter = categoryAdapter
     }
 
-    private inner class CategoryAdapter(private val categories: List<String>) :
+    private fun openProductDetail(categoryName: String) {
+        val fragment = ProductDetailFragment().apply {
+            arguments = Bundle().apply {
+                putString("category_name", categoryName)
+            }
+        }
+
+        // ใช้ beginTransaction() แทน commit {} ถ้ายังพบ error
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    data class CategoryItem(val imageResId: Int, val name: String)
+
+    private inner class CategoryAdapter(private val categories: List<CategoryItem>) :
         RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -46,27 +68,16 @@ class ProductListFragment : Fragment(R.layout.fragment_product_list) {
         override fun getItemCount() = categories.size
 
         inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val imageCategory: ImageView = itemView.findViewById(R.id.imageCategory)
             private val textCategoryName: TextView = itemView.findViewById(R.id.textCategoryName)
 
-            fun bind(category: String) {
-                textCategoryName.text = category
+            fun bind(category: CategoryItem) {
+                imageCategory.setImageResource(category.imageResId)
+                textCategoryName.text = category.name
                 itemView.setOnClickListener {
-                    openProductDetail(category)
+                    openProductDetail(category.name)
                 }
             }
-        }
-    }
-
-    private fun openProductDetail(categoryName: String) {
-        val fragment = ProductDetailFragment().apply {
-            arguments = Bundle().apply {
-                putString("category_name", categoryName)
-            }
-        }
-
-        parentFragmentManager.commit {
-            replace(R.id.fragment_container, fragment)
-            addToBackStack(null)
         }
     }
 }

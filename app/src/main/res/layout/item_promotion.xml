@@ -5,11 +5,12 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <View
+    <ImageView
         android:id="@+id/promotionImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:background="@android:color/darker_gray" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/promotionName"

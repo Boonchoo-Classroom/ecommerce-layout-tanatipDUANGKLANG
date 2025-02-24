@@ -18,13 +18,12 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         recyclerViewCart = view.findViewById(R.id.recyclerViewCart)
         recyclerViewCart.layoutManager = LinearLayoutManager(requireContext())
 
-        // Mock ข้อมูลสินค้าในตะกร้า
+        // Mock ข้อมูลสินค้าในตะกร้า (ใช้รูปภาพแทน)
         val cartItems = listOf(
-            CartItem(R.drawable.ic_launcher_foreground, "หูฟังบลูทูธ", "฿1,200", 1),
-            CartItem(R.drawable.ic_launcher_foreground, "คีย์บอร์ดแมคคานิคอล", "฿2,500", 1),
-            CartItem(R.drawable.ic_launcher_foreground, "เมาส์เกมมิ่ง", "฿800", 2)
+            CartItem(R.drawable.headphone, "หูฟังบลูทูธ", "฿1,200", 1),
+            CartItem(R.drawable.keyboard, "คีย์บอร์ดแมคคานิคอล", "฿2,500", 1),
+            CartItem(R.drawable.mouse, "เมาส์เกมมิ่ง", "฿800", 2)
         )
-
 
         cartAdapter = CartAdapter(cartItems)
         recyclerViewCart.adapter = cartAdapter
